@@ -1,0 +1,16 @@
+Feature: PDOK WFS Services
+
+  Scenario: Get Capabilities wfs secure
+    Given The following wfs services: bag, brpgewaspercelen, beschermdenatuurmonumenten
+    When I ask wfs get capabilities secure
+    Then I get correct answer
+
+  Scenario: Get Capabilities wfs not secure
+    Given The following wfs services: bag, brpgewaspercelen, beschermdenatuurmonumenten
+    When I ask wfs get capabilities not secure
+    Then I get correct answer
+
+  Scenario: Test the given service secure
+    Given The testclient exists
+    When I ask wfs get capabilities secure for service 'bag'
+    Then I get a success response
