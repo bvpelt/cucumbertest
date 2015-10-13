@@ -1,87 +1,73 @@
 Feature: PDOK WFS secure Services
 
-  Scenario: Test the given service secure ahn1
+  Scenario Outline: Test the given service secure for service
     Given The testclient exists
-    When I ask wfs get capabilities secure for service 'ahn1'
-    Then I get a success response
+    When I ask '<requesttype>' get capabilities with '<protocol>' for service '<service>'
+    Then I get status '<httpStatus>' as response
 
-  Scenario: Test the given service secure ahn2
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'ahn2'
-    Then I get a success response
-    
-      Scenario: Test the given service secure ahn3
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'ahn3'
-    Then I get a success response
-
-      Scenario: Test the given service secure inspireadressen
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'inspireadressen'
-    Then I get a success response
-
-  Scenario: Test the given service secure inspire/ad
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'inspire/ad'
-    Then I get a success response
-
-  Scenario: Test the given service secure aan
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'aan'
-    Then I get a success response
-
-  Scenario: Test the given service secure asbestscholenkaart
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'asbestscholenkaart'
-    Then I get a success response
-
-  Scenario: Test the given service secure bag
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'bag'
-    Then I get a success response
-    
-  Scenario: Test the given service secure brpgewaspercelen
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'brpgewaspercelen'
-    Then I get a success response
-    
-  Scenario: Test the given service secure beschermdenatuurmonumenten
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'beschermdenatuurmonumenten'
-    Then I get a success response
-  
-  Scenario: Test the given service secure bestuurlijkegrenzen
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'bestuurlijkegrenzen'
-    Then I get a success response
- 
-  Scenario: Test the given service secure bestandbodembebruik2008
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'bestandbodemgebruik2008'
-    Then I get a success response
-
-  Scenario: Test the given service secure bestandbodemgebruik2010
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'bestandbodemgebruik2010'
-    Then I get a success response
-
- Scenario: Test the given service secure bevolkingskernen2008
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'bevolkingskernen2008'
-    Then I get a success response
-
- Scenario: Test the given service secure bevolkingskernen2011
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'bevolkingskernen2011'
-    Then I get a success response
-
- Scenario: Test the given service secure cbsgebiedsindelingen
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'cbsgebiedsindelingen'
-    Then I get a success response
-
- Scenario: Test the given service secure cbsprovincies
-    Given The testclient exists
-    When I ask wfs get capabilities secure for service 'cbsprovincies'
-    Then I get a success response
-
+    Examples:
+      | protocol | requesttype | service                    | httpStatus |
+      | http     | wfs         | ahn1                       | 200        |
+      | https    | wfs         | ahn1                       | 200        |
+      | http     | wms         | ahn1                       | 200        |
+      | https    | wms         | ahn1                       | 200        |
+      | http     | wfs         | ahn2                       | 200        |
+      | https    | wfs         | ahn2                       | 200        |
+      | http     | wms         | ahn2                       | 200        |
+      | https    | wms         | ahn2                       | 200        |
+      | http     | wfs         | ahn3                       | 200        |
+      | https    | wfs         | ahn3                       | 200        |
+      | http     | wms         | ahn3                       | 200        |
+      | https    | wms         | ahn3                       | 200        |
+      | http     | wfs         | inspireadressen            | 200        |
+      | https    | wfs         | inspireadressen            | 200        |
+      | http     | wfs         | inspire/ad                 | 200        |
+      | https    | wfs         | inspire/ad                 | 200        |
+      | http     | wfs         | aan                        | 200        |
+      | https    | wfs         | aan                        | 200        |
+      | http     | wms         | aan                        | 200        |
+      | https    | wms         | aan                        | 200        |
+      | http     | wfs         | asbestscholenkaart         | 200        |
+      | https    | wfs         | asbestscholenkaart         | 200        |
+      | http     | wms         | asbestscholenkaart         | 200        |
+      | https    | wms         | asbestscholenkaart         | 200        |
+      | http     | wfs         | bag                        | 200        |
+      | https    | wfs         | bag                        | 200        |
+      | http     | wms         | bag                        | 200        |
+      | https    | wms         | bag                        | 200        |
+      | http     | wfs         | brpgewaspercelen           | 200        |
+      | https    | wfs         | brpgewaspercelen           | 200        |
+      | http     | wms         | brpgewaspercelen           | 200        |
+      | https    | wms         | brpgewaspercelen           | 200        |
+      | http     | wfs         | beschermdenatuurmonumenten | 200        |
+      | https    | wfs         | beschermdenatuurmonumenten | 200        |
+      | http     | wms         | beschermdenatuurmonumenten | 200        |
+      | https    | wms         | beschermdenatuurmonumenten | 200        |
+      | http     | wfs         | bestuurlijkegrenzen        | 200        |
+      | https    | wfs         | bestuurlijkegrenzen        | 200        |
+      | http     | wms         | bestuurlijkegrenzen        | 200        |
+      | https    | wms         | bestuurlijkegrenzen        | 200        |
+      | http     | wfs         | bestandbodemgebruik2008    | 200        |
+      | https    | wfs         | bestandbodemgebruik2008    | 200        |
+      | http     | wms         | bestandbodemgebruik2008    | 200        |
+      | https    | wms         | bestandbodemgebruik2008    | 200        |
+      | http     | wfs         | bestandbodemgebruik2010    | 200        |
+      | https    | wfs         | bestandbodemgebruik2010    | 200        |
+      | http     | wms         | bestandbodemgebruik2010    | 200        |
+      | https    | wms         | bestandbodemgebruik2010    | 200        |
+      | http     | wfs         | bevolkingskernen2008       | 200        |
+      | https    | wfs         | bevolkingskernen2008       | 200        |
+      | http     | wms         | bevolkingskernen2008       | 200        |
+      | https    | wms         | bevolkingskernen2008       | 200        |
+      | http     | wfs         | bevolkingskernen2011       | 200        |
+      | https    | wfs         | bevolkingskernen2011       | 200        |
+      | http     | wms         | bevolkingskernen2011       | 200        |
+      | https    | wms         | bevolkingskernen2011       | 200        |
+      | http     | wfs         | cbsgebiedsindelingen       | 200        |
+      | https    | wfs         | cbsgebiedsindelingen       | 200        |
+      | http     | wms         | cbsgebiedsindelingen       | 200        |
+      | https    | wms         | cbsgebiedsindelingen       | 200        |
+      | http     | wfs         | cbsprovincies              | 200        |
+      | https    | wfs         | cbsprovincies              | 200        |
+      | http     | wms         | cbsprovincies              | 200        |
+      | https    | wms         | cbsprovincies              | 200        |
