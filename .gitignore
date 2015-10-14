@@ -1,4 +1,7 @@
+.classpath
 .idea/
+.project
+.settings/
 cucumbertest.iml
 example.log
 output/

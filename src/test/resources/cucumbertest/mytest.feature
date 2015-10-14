@@ -4,70 +4,98 @@ Feature: PDOK WFS secure Services
     Given The testclient exists
     When I ask '<requesttype>' get capabilities with '<protocol>' for service '<service>'
     Then I get status '<httpStatus>' as response
+    And I get '<xmlvalidationStatus>' as validation status for '<requesttype>'
 
     Examples:
-      | protocol | requesttype | service                    | httpStatus |
-      | http     | wfs         | ahn1                       | 200        |
-      | https    | wfs         | ahn1                       | 200        |
-      | http     | wms         | ahn1                       | 200        |
-      | https    | wms         | ahn1                       | 200        |
-      | http     | wfs         | ahn2                       | 200        |
-      | https    | wfs         | ahn2                       | 200        |
-      | http     | wms         | ahn2                       | 200        |
-      | https    | wms         | ahn2                       | 200        |
-      | http     | wfs         | ahn3                       | 200        |
-      | https    | wfs         | ahn3                       | 200        |
-      | http     | wms         | ahn3                       | 200        |
-      | https    | wms         | ahn3                       | 200        |
-      | http     | wfs         | inspireadressen            | 200        |
-      | https    | wfs         | inspireadressen            | 200        |
-      | http     | wfs         | inspire/ad                 | 200        |
-      | https    | wfs         | inspire/ad                 | 200        |
-      | http     | wfs         | aan                        | 200        |
-      | https    | wfs         | aan                        | 200        |
-      | http     | wms         | aan                        | 200        |
-      | https    | wms         | aan                        | 200        |
-      | http     | wfs         | asbestscholenkaart         | 200        |
-      | https    | wfs         | asbestscholenkaart         | 200        |
-      | http     | wms         | asbestscholenkaart         | 200        |
-      | https    | wms         | asbestscholenkaart         | 200        |
-      | http     | wfs         | bag                        | 200        |
-      | https    | wfs         | bag                        | 200        |
-      | http     | wms         | bag                        | 200        |
-      | https    | wms         | bag                        | 200        |
-      | http     | wfs         | brpgewaspercelen           | 200        |
-      | https    | wfs         | brpgewaspercelen           | 200        |
-      | http     | wms         | brpgewaspercelen           | 200        |
-      | https    | wms         | brpgewaspercelen           | 200        |
-      | http     | wfs         | beschermdenatuurmonumenten | 200        |
-      | https    | wfs         | beschermdenatuurmonumenten | 200        |
-      | http     | wms         | beschermdenatuurmonumenten | 200        |
-      | https    | wms         | beschermdenatuurmonumenten | 200        |
-      | http     | wfs         | bestuurlijkegrenzen        | 200        |
-      | https    | wfs         | bestuurlijkegrenzen        | 200        |
-      | http     | wms         | bestuurlijkegrenzen        | 200        |
-      | https    | wms         | bestuurlijkegrenzen        | 200        |
-      | http     | wfs         | bestandbodemgebruik2008    | 200        |
-      | https    | wfs         | bestandbodemgebruik2008    | 200        |
-      | http     | wms         | bestandbodemgebruik2008    | 200        |
-      | https    | wms         | bestandbodemgebruik2008    | 200        |
-      | http     | wfs         | bestandbodemgebruik2010    | 200        |
-      | https    | wfs         | bestandbodemgebruik2010    | 200        |
-      | http     | wms         | bestandbodemgebruik2010    | 200        |
-      | https    | wms         | bestandbodemgebruik2010    | 200        |
-      | http     | wfs         | bevolkingskernen2008       | 200        |
-      | https    | wfs         | bevolkingskernen2008       | 200        |
-      | http     | wms         | bevolkingskernen2008       | 200        |
-      | https    | wms         | bevolkingskernen2008       | 200        |
-      | http     | wfs         | bevolkingskernen2011       | 200        |
-      | https    | wfs         | bevolkingskernen2011       | 200        |
-      | http     | wms         | bevolkingskernen2011       | 200        |
-      | https    | wms         | bevolkingskernen2011       | 200        |
-      | http     | wfs         | cbsgebiedsindelingen       | 200        |
-      | https    | wfs         | cbsgebiedsindelingen       | 200        |
-      | http     | wms         | cbsgebiedsindelingen       | 200        |
-      | https    | wms         | cbsgebiedsindelingen       | 200        |
-      | http     | wfs         | cbsprovincies              | 200        |
-      | https    | wfs         | cbsprovincies              | 200        |
-      | http     | wms         | cbsprovincies              | 200        |
-      | https    | wms         | cbsprovincies              | 200        |
+      | protocol | requesttype | service                    | httpStatus | xmlvalidationStatus |
+      | http     | wcs         | ahn1                       | 200        | true                |
+      | https    | wcs         | ahn1                       | 200        | true                |      
+      | http     | wfs         | ahn1                       | 200        | true                |
+      | https    | wfs         | ahn1                       | 200        | true                |      
+      | http     | wms         | ahn1                       | 200        | true                |
+      | https    | wms         | ahn1                       | 200        | true                |
+      | http     | wmts        | ahn1                       | 200        | true                |
+      | https    | wmts        | ahn1                       | 200        | true                |
+      | http     | wcs         | ahn2                       | 200        | true                |
+      | https    | wcs         | ahn2                       | 200        | true                |
+      | http     | wfs         | ahn2                       | 200        | true                |
+      | https    | wfs         | ahn2                       | 200        | true                |
+      | http     | wms         | ahn2                       | 200        | true                |
+      | https    | wms         | ahn2                       | 200        | true                |
+      | http     | wmts        | ahn2                       | 200        | true                |
+      | https    | wmts        | ahn2                       | 200        | true                |      
+      | http     | wcs         | ahn3                       | 200        | true                |
+      | https    | wcs         | ahn3                       | 200        | true                |
+      | http     | wfs         | ahn3                       | 200        | true                |
+      | https    | wfs         | ahn3                       | 200        | true                |
+      | http     | wms         | ahn3                       | 200        | true                |
+      | https    | wms         | ahn3                       | 200        | true                |
+      | http     | wmts        | ahn3                       | 200        | true                |
+      | https    | wmts        | ahn3                       | 200        | true                |
+      | http     | wfs         | inspireadressen            | 200        | true                |
+      | https    | wfs         | inspireadressen            | 200        | true                |
+      | http     | wms         | inspireadressen            | 200        | true                |
+      | https    | wms         | inspireadressen            | 200        | true                |
+      | http     | wfs         | inspire/ad                 | 200        | true                |
+      | https    | wfs         | inspire/ad                 | 200        | true                |
+      | http     | wms         | inspire/ad                 | 200        | true                |
+      | https    | wms         | inspire/ad                 | 200        | true                |
+      | http     | wfs         | aan                        | 200        | true                |
+      | https    | wfs         | aan                        | 200        | true                |
+      | http     | wms         | aan                        | 200        | true                |
+      | https    | wms         | aan                        | 200        | true                |
+      | http     | wmts        | aan                        | 200        | true                |
+      | https    | wmts        | aan                        | 200        | true                |
+      | http     | wfs         | asbestscholenkaart         | 200        | true                |
+      | https    | wfs         | asbestscholenkaart         | 200        | true                |
+      | http     | wms         | asbestscholenkaart         | 200        | true                |
+      | https    | wms         | asbestscholenkaart         | 200        | true                |
+      | http     | wfs         | bag                        | 200        | true                |
+      | https    | wfs         | bag                        | 200        | true                |
+      | http     | wms         | bag                        | 200        | true                |
+      | https    | wms         | bag                        | 200        | true                |
+      | http     | wmts        | bag                        | 200        | true                |
+      | https    | wmts        | bag                        | 200        | true                |
+      | http     | wmts        | bgtachtergrond             | 200        | true                |
+      | https    | wmts        | bgtachtergrond             | 200        | true                |
+      | http     | wmts        | bgtlijngericht             | 200        | true                |
+      | https    | wmts        | bgtlijngericht             | 200        | true                |
+      | http     | wfs         | brpgewaspercelen           | 200        | true                |
+      | https    | wfs         | brpgewaspercelen           | 200        | true                |
+      | http     | wms         | brpgewaspercelen           | 200        | true                |
+      | https    | wms         | brpgewaspercelen           | 200        | true                |
+      | http     | wmts        | brpgewaspercelen           | 200        | true                |
+      | https    | wmts        | brpgewaspercelen           | 200        | true                |
+      | http     | wfs         | beschermdenatuurmonumenten | 200        | true                |
+      | https    | wfs         | beschermdenatuurmonumenten | 200        | true                |
+      | http     | wms         | beschermdenatuurmonumenten | 200        | true                |
+      | https    | wms         | beschermdenatuurmonumenten | 200        | true                |
+      | http     | wfs         | bestuurlijkegrenzen        | 200        | true                |
+      | https    | wfs         | bestuurlijkegrenzen        | 200        | true                |
+      | http     | wms         | bestuurlijkegrenzen        | 200        | true                |
+      | https    | wms         | bestuurlijkegrenzen        | 200        | true                |
+      | http     | wfs         | bestandbodemgebruik2008    | 200        | true                |
+      | https    | wfs         | bestandbodemgebruik2008    | 200        | true                |
+      | http     | wms         | bestandbodemgebruik2008    | 200        | true                |
+      | https    | wms         | bestandbodemgebruik2008    | 200        | true                |
+      | http     | wfs         | bestandbodemgebruik2010    | 200        | true                |
+      | https    | wfs         | bestandbodemgebruik2010    | 200        | true                |
+      | http     | wms         | bestandbodemgebruik2010    | 200        | true                |
+      | https    | wms         | bestandbodemgebruik2010    | 200        | true                |
+      | http     | wfs         | bevolkingskernen2008       | 200        | true                |
+      | https    | wfs         | bevolkingskernen2008       | 200        | true                |
+      | http     | wms         | bevolkingskernen2008       | 200        | true                |
+      | https    | wms         | bevolkingskernen2008       | 200        | true                |
+      | http     | wfs         | bevolkingskernen2011       | 200        | true                |
+      | https    | wfs         | bevolkingskernen2011       | 200        | true                |
+      | http     | wms         | bevolkingskernen2011       | 200        | true                |
+      | https    | wms         | bevolkingskernen2011       | 200        | true                |
+      | http     | wfs         | cbsgebiedsindelingen       | 200        | true                |
+      | https    | wfs         | cbsgebiedsindelingen       | 200        | true                |
+      | http     | wms         | cbsgebiedsindelingen       | 200        | true                |
+      | https    | wms         | cbsgebiedsindelingen       | 200        | true                |
+      | http     | wfs         | cbsprovincies              | 200        | true                |
+      | https    | wfs         | cbsprovincies              | 200        | true                |
+      | http     | wms         | cbsprovincies              | 200        | true                |
+      | https    | wms         | cbsprovincies              | 200        | true                |
+    

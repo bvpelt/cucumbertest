@@ -1,0 +1,32 @@
+<jaxb:bindings version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:wildcard="http://jaxb2-commons.dev.java.net/basic/wildcard"
+	jaxb:extensionBindingPrefixes="xjc wildcard">
+
+	<jaxb:bindings schemaLocation="wfs.xsd" node="/xs:schema">
+
+		<jaxb:schemaBindings>
+			<jaxb:package name="net.opengis.wfs.v_2_0" />
+		</jaxb:schemaBindings>
+
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="wfs.xsd" node="/xs:schema">
+
+
+		<jaxb:bindings schemaLocation="http://www.w3.org/1999/xlink.xsd">
+			<jaxb:bindings
+				node="//xs:attributeGroup[@name='locatorAttrs']//xs:attribute[@ref='xlink:title']">
+				<jaxb:property name="xlink:title1" />
+			</jaxb:bindings>
+			<jaxb:bindings
+				node="//xs:attributeGroup[@name='arcAttrs']//xs:attribute[@ref='xlink:title']">
+				<jaxb:property name="xlink:title2" />
+			</jaxb:bindings>
+		</jaxb:bindings>
+
+
+	</jaxb:bindings>
+
+
+</jaxb:bindings>
