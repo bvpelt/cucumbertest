@@ -15,13 +15,16 @@ import cucumber.api.java.en.When;
 
 import org.junit.Assert;
 
+import java.util.UUID;
+
 public class Stepdefs {
 	private static Logger logger = LoggerFactory.getLogger(Stepdefs.class);
-	private static boolean useProxy = false;
+	private static boolean useProxy = true;
 	private CloseableHttpResponse response = null;
 	private TestClient testclient = null;
 	private String service = null;
 	private XmlValidation xv = XmlValidation.getInstance();
+	private UUID uuid;
 
 	@Given("^The testclient exists$")
 	public void the_testclient_exists() throws Throwable {
@@ -32,7 +35,7 @@ public class Stepdefs {
 		if (useProxy) {
 			testclient.setProxy("www-proxy.cs.kadaster.nl", 8082);
 		}
-
+		uuid = UUID.randomUUID();
 		Assert.assertNotNull(testclient);
 	}
 
@@ -41,6 +44,7 @@ public class Stepdefs {
 			final String service) throws Throwable {
 		this.service = service;
 		String url = null;
+
 
 		if (requestType.toLowerCase().equals("wcs")  
 				|| requestType.toLowerCase().equals("wfs")
@@ -52,6 +56,8 @@ public class Stepdefs {
 			url = protocol + "://geodata.nationaalgeoregister.nl/tiles/service/" + requestType + "/" + service
 					+ "?request=GetCapabilities";
 		}
+		url +=  "&cucumbertest="+ uuid.toString();
+
 		Assert.assertNotNull(url);
 		logger.info("Calling service {} with url {}", service, url);
 		response = testclient.sendRequest(url, TestClient.HTTPGET);

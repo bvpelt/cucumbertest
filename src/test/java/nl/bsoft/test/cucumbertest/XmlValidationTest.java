@@ -34,7 +34,7 @@ public class XmlValidationTest {
 	@After
 	public void tearDown() throws Exception {
 	}
-
+/*
 	// WCS
 	@Test
 	public void testValidateXMLWCSSchema() {
@@ -44,7 +44,7 @@ public class XmlValidationTest {
 		Assert.assertEquals(true, result);
 
 	}
-
+*/
 	// WFS
 	@Test
 	public void testValidateXMLWFSSchema() {
@@ -81,10 +81,10 @@ public class XmlValidationTest {
 	public void testValidateXMLSchemaMultiple() {
 
 		boolean result = false;
-
+		/*
 		result = xv.validateXMLFileSchemaWCS("wcsGetCapabilities.xml");
 		Assert.assertEquals(true, result);
-
+*/
 		result = xv.validateXMLFileSchemaWFS("wfsGetCapabilities.xml");
 		Assert.assertEquals(true, result);
 
